@@ -1,0 +1,130 @@
+/* ----------------------------------------------------
+   GLOBAL BASE STYLES
+---------------------------------------------------- */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* ----------------------------------------------------
+   BEAUTIFUL HOME PAGE 
+---------------------------------------------------- */
+.home-bg {
+    height: 100vh;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.title {
+    font-size: 40px;
+    color: white;
+    margin-bottom: 50px;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.menu-container {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu-card {
+    background: white;
+    width: 200px;
+    padding: 25px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: black;
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.3);
+    transition: 0.4s;
+}
+
+.menu-card:hover {
+    transform: scale(1.08);
+    background: #ffe066;
+}
+
+/* ----------------------------------------------------
+   FORM STYLING
+---------------------------------------------------- */
+.form {
+    width: 350px;
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin: auto;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+
+.form-control {
+    margin-bottom: 12px;
+}
+
+/* ----------------------------------------------------
+   TABLE STYLING
+---------------------------------------------------- */
+table {
+    width: 90%;
+    margin: auto;
+}
+
+table img {
+    border-radius: 10px;
+}
+
+/* ----------------------------------------------------
+   BUTTON CUSTOM STYLING
+---------------------------------------------------- */
+.btn-primary {
+    background-color: #2575fc !important;
+}
+
+.btn-warning {
+    background-color: #ff9800 !important;
+}
+
+.btn-danger {
+    background-color: #e53935 !important;
+}
+
+.btn-info {
+    background-color: #00bcd4 !important;
+}
+
+.btn-success {
+    background-color: #4caf50 !important;
+}
+
+.btn-secondary {
+    background-color: gray !important;
+}
+
+/* ----------------------------------------------------
+   DASHBOARD
+---------------------------------------------------- */
+canvas {
+    margin-top: 30px;
+    background: white;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0px 5px 12px rgba(0,0,0,0.2);
+}
+/* Make dashboard charts smaller */
+canvas {
+    max-width: 600px;
+    max-height: 600px;
+    margin: auto;
+    display: block;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="/static/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<h2>Dashboard</h2>
+
+<!-- COURSE CHART -->
+<canvas id="courseChart" width="500" height="150"></canvas>
+
+<!-- CGPA CHART -->
+<canvas id="cgpaChart" width="500" height="150" style="margin-top:40px;"></canvas>
+
+
+<!-- SAFE JSON (Best Practice) -->
+<script>
+    // Convert Python data → JSON safely
+    const courseLabels = {{ course_data | map(attribute=0) | list | tojson }};
+    const courseCounts = {{ course_data | map(attribute=1) | list | tojson }};
+    const cgpas = {{ cgpas | tojson }};
+</script>
+
+<script>
+    // ------------------- Course Chart -------------------
+    new Chart(document.getElementById("courseChart"), {
+        type: "bar",
+        data: {
+            labels: courseLabels,
+            datasets: [{
+                label: "Students per Course",
+                data: courseCounts,
+                backgroundColor: "rgba(54, 162, 235, 0.7)"
+            }]
+        }
+    });
+
+    // ------------------- CGPA Chart -------------------
+    new Chart(document.getElementById("cgpaChart"), {
+        type: "pie",
+        data: {
+            labels: cgpas,
+            datasets: [{
+                label: "CGPA Distribution",
+                data: cgpas,
+                backgroundColor: [
+                    "#ff6384",
+                    "#36a2eb",
+                    "#cc65fe",
+                    "#ffce56",
+                    "#4caf50"
+                ]
+            }]
+        }
+    });
+</script>
+
+<a class="btn btn-secondary" href="/">Back</a>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Students</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">📚 All Students</h2>
+
+    <a href="/" class="btn btn-dark mb-3">⬅ Back</a>
+
+    <table class="table table-bordered table-hover text-center bg-white shadow">
+        <thead class="thead-dark">
+            <tr>
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Roll</th>
+                <th>Age</th>
+                <th>Course</th>
+                <th>CGPA</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for s in students %}
+            <tr>
+
+                <!-- PHOTO FIXED -->
+                <td>
+                    <img src="{{ url_for('static', filename='uploads/' + (s[6] if s[6] else 'default.jpg')) }}"
+                         width="70" height="70"
+                         style="border-radius: 10px; object-fit: cover;">
+                </td>
+
+                <td>{{ s[1] }}</td>
+                <td>{{ s[2] }}</td>
+                <td>{{ s[3] }}</td>
+                <td>{{ s[4] }}</td>
+                <td>{{ s[5] }}</td>
+
+                <td>
+                    <a href="/update/{{ s[0] }}" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="/delete/{{ s[0] }}" class="btn btn-danger btn-sm">Delete</a>
+                    <a href="/attendance/{{ s[0] }}" class="btn btn-info btn-sm">Attendance</a>
+                    <a href="/marks/{{ s[0] }}" class="btn btn-success btn-sm">Marks</a>
+                    <a href="/report/{{ s[0] }}" class="btn btn-primary btn-sm">PDF</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+
+    </table>
+</div>
+
+</body>
+</html>
